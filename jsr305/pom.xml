@@ -15,7 +15,7 @@
 	<properties>
 		<!-- change release here-->
 		<core.artifact.version>3.0.2</core.artifact.version>
-		<core.artifact.release>r1</core.artifact.release>
+		<core.artifact.release>jpms</core.artifact.release>
 
 		<maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
 		<maven.moditect.plugin>1.2.2.Final</maven.moditect.plugin>

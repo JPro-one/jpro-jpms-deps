@@ -15,11 +15,11 @@
     <properties>
         <!-- change release here-->
         <core.artifact.version>0.22.1</core.artifact.version>
-        <core.artifact.release>r1</core.artifact.release>
+        <core.artifact.release>jpms</core.artifact.release>
 
         <!-- transitive dependency versions -->
         <jackson.version>2.17.2</jackson.version>
-        <jpro.guava.version>33.3.0-jre-r1</jpro.guava.version>
+        <jpro.guava.version>33.3.0-jre-jpms</jpro.guava.version>
 
         <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
         <maven.moditect.plugin>1.2.2.Final</maven.moditect.plugin>
