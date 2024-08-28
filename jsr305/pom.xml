@@ -5,15 +5,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>one.jpro.platform.jpms</groupId>
-	<artifactId>jsr305</artifactId>
+	<artifactId>${core.artifact.artifactId}</artifactId>
 	<packaging>jar</packaging>
 	<version>${core.artifact.version}-${core.artifact.release}</version>
 
-	<name>JPro Platform JSR 305 Annotations Module</name>
+	<name>JPro Platform JSR 305 Annotations JPMS Module</name>
 	<description>A modularized version of JSR 305 annotations, repackaged for use with the JPro platform, providing support for software defect detection with JPMS compliance.</description>
 
 	<properties>
 		<!-- change release here-->
+		<core.artifact.groupId>com.google.code.findbugs</core.artifact.groupId>
+		<core.artifact.artifactId>jsr305</core.artifact.artifactId>
 		<core.artifact.version>3.0.2</core.artifact.version>
 		<core.artifact.release>jpms</core.artifact.release>
 
@@ -80,14 +82,14 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>com.google.code.findbugs</groupId>
-									<artifactId>${project.artifactId}</artifactId>
+									<groupId>${core.artifact.groupId}</groupId>
+									<artifactId>${core.artifact.artifactId}</artifactId>
 									<version>${core.artifact.version}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 								<artifactItem>
-									<groupId>com.google.code.findbugs</groupId>
-									<artifactId>${project.artifactId}</artifactId>
+									<groupId>${core.artifact.groupId}</groupId>
+									<artifactId>${core.artifact.artifactId}</artifactId>
 									<version>${core.artifact.version}</version>
 									<classifier>javadoc</classifier>
 								</artifactItem>
@@ -140,8 +142,8 @@
 							<modules>
 								<module>
 									<artifact>
-										<groupId>com.google.code.findbugs</groupId>
-										<artifactId>jsr305</artifactId>
+										<groupId>${core.artifact.groupId}</groupId>
+										<artifactId>${core.artifact.artifactId}</artifactId>
 										<version>${core.artifact.version}</version>
 									</artifact>
 									<moduleInfo>

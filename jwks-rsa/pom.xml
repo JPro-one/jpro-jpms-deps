@@ -5,15 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>one.jpro.platform.jpms</groupId>
-    <artifactId>jwks-rsa</artifactId>
+    <artifactId>${core.artifact.artifactId}</artifactId>
     <packaging>jar</packaging>
     <version>${core.artifact.version}-${core.artifact.release}</version>
 
-    <name>JPro Platform JWKS RSA Module</name>
+    <name>JPro Platform JWKS RSA JPMS Module</name>
     <description>A modularized version of JWKS RSA, repackaged for use with the JPro platform, providing support for JSON Web Key Set (JWKS) RSA keys.</description>
 
     <properties>
         <!-- change release here-->
+        <core.artifact.groupId>com.auth0</core.artifact.groupId>
+        <core.artifact.artifactId>jwks-rsa</core.artifact.artifactId>
         <core.artifact.version>0.22.1</core.artifact.version>
         <core.artifact.release>jpms</core.artifact.release>
 
@@ -106,14 +108,14 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.auth0</groupId>
-                                    <artifactId>jwks-rsa</artifactId>
+                                    <groupId>${core.artifact.groupId}</groupId>
+                                    <artifactId>${core.artifact.artifactId}</artifactId>
                                     <version>${core.artifact.version}</version>
                                     <classifier>sources</classifier>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>com.auth0</groupId>
-                                    <artifactId>jwks-rsa</artifactId>
+                                    <groupId>${core.artifact.groupId}</groupId>
+                                    <artifactId>${core.artifact.artifactId}</artifactId>
                                     <version>${core.artifact.version}</version>
                                     <classifier>javadoc</classifier>
                                 </artifactItem>
@@ -167,8 +169,8 @@
                             <modules>
                                 <module>
                                     <artifact>
-                                        <groupId>com.auth0</groupId>
-                                        <artifactId>jwks-rsa</artifactId>
+                                        <groupId>${core.artifact.groupId}</groupId>
+                                        <artifactId>${core.artifact.artifactId}</artifactId>
                                         <version>${core.artifact.version}</version>
                                     </artifact>
                                     <moduleInfoSource>

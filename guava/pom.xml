@@ -5,15 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>one.jpro.platform.jpms</groupId>
-    <artifactId>guava</artifactId>
+    <artifactId>${core.artifact.artifactId}</artifactId>
     <packaging>jar</packaging>
     <version>${core.artifact.version}-${core.artifact.release}</version>
 
-    <name>JPro Platform Guava Module</name>
+    <name>JPro Platform Guava JPMS Module</name>
     <description>A customized, modularized version of Google’s Guava library, repackaged for the JPro platform with additional support for JPMS and enhanced artifact management.</description>
 
     <properties>
         <!-- change release here-->
+        <core.artifact.groupId>com.google.guava</core.artifact.groupId>
+        <core.artifact.artifactId>guava</core.artifact.artifactId>
         <core.artifact.version>33.3.0-jre</core.artifact.version>
         <core.artifact.release>jpms</core.artifact.release>
 
@@ -122,14 +124,14 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.google.guava</groupId>
-                                    <artifactId>guava</artifactId>
+                                    <groupId>${core.artifact.groupId}</groupId>
+                                    <artifactId>${core.artifact.artifactId}</artifactId>
                                     <version>${core.artifact.version}</version>
                                     <classifier>sources</classifier>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>com.google.guava</groupId>
-                                    <artifactId>guava</artifactId>
+                                    <groupId>${core.artifact.groupId}</groupId>
+                                    <artifactId>${core.artifact.artifactId}</artifactId>
                                     <version>${core.artifact.version}</version>
                                     <classifier>javadoc</classifier>
                                 </artifactItem>
@@ -152,12 +154,12 @@
                         <configuration>
                             <artifacts>
                                 <artifact>
-                                    <file>${project.build.directory}/dependency/${artifactId}-${core.artifact.version}-sources.jar</file>
+                                    <file>${project.build.directory}/dependency/${project.artifactId}-${core.artifact.version}-sources.jar</file>
                                     <type>jar</type>
                                     <classifier>sources</classifier>
                                 </artifact>
                                 <artifact>
-                                    <file>${project.build.directory}/dependency/${artifactId}-${core.artifact.version}-javadoc.jar</file>
+                                    <file>${project.build.directory}/dependency/${project.artifactId}-${core.artifact.version}-javadoc.jar</file>
                                     <type>jar</type>
                                     <classifier>javadoc</classifier>
                                 </artifact>
@@ -183,12 +185,12 @@
                             <modules>
                                 <module>
                                     <artifact>
-                                        <groupId>com.google.guava</groupId>
-                                        <artifactId>guava</artifactId>
+                                        <groupId>${core.artifact.groupId}</groupId>
+                                        <artifactId>${core.artifact.artifactId}</artifactId>
                                         <version>${core.artifact.version}</version>
                                     </artifact>
                                     <moduleInfoSource>
-                                        module com.google.common {
+                                        open module com.google.common {
                                         requires jdk.unsupported;
                                         requires java.logging;
                                         requires com.google.common.util.concurrent.internal;
@@ -230,8 +232,8 @@
                         <configuration>
                             <target>
                                 <echo message="renaming sources file" />
-                                <copy file="${project.build.directory}/dependency/${artifactId}-${core.artifact.version}-sources.jar"
-                                      tofile="${project.build.directory}/${artifactId}-${core.artifact.version}-${core.artifact.release}-sources.jar" />
+                                <copy file="${project.build.directory}/dependency/${project.artifactId}-${core.artifact.version}-sources.jar"
+                                      tofile="${project.build.directory}/${project.artifactId}-${core.artifact.version}-${core.artifact.release}-sources.jar" />
                             </target>
                         </configuration>
                     </execution>
@@ -244,8 +246,8 @@
                         <configuration>
                             <target>
                                 <echo message="renaming javadoc file" />
-                                <copy file="${project.build.directory}/dependency/${artifactId}-${core.artifact.version}-javadoc.jar"
-                                      tofile="${project.build.directory}/${artifactId}-${core.artifact.version}-${core.artifact.release}-javadoc.jar" />
+                                <copy file="${project.build.directory}/dependency/${project.artifactId}-${core.artifact.version}-javadoc.jar"
+                                      tofile="${project.build.directory}/${project.artifactId}-${core.artifact.version}-${core.artifact.release}-javadoc.jar" />
                             </target>
                         </configuration>
                     </execution>
