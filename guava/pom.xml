@@ -193,10 +193,13 @@
                                         open module com.google.common {
                                         requires jdk.unsupported;
                                         requires java.logging;
-                                        requires com.google.common.util.concurrent.internal;
+                                        requires static com.google.common.util.concurrent.internal;
+                                        requires static org.checkerframework.checker.qual;
+                                        requires static com.google.errorprone.annotations;
 
                                         exports com.google.common.annotations;
                                         exports com.google.common.base;
+                                        exports com.google.common.base.internal;
                                         exports com.google.common.cache;
                                         exports com.google.common.collect;
                                         exports com.google.common.escape;
