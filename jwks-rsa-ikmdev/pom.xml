@@ -17,7 +17,7 @@
         <core.artifact.groupId>com.auth0</core.artifact.groupId>
         <core.artifact.artifactId>jwks-rsa</core.artifact.artifactId>
         <core.artifact.version>0.22.1</core.artifact.version>
-        <core.artifact.release>jpms-ikmdev</core.artifact.release>
+        <core.artifact.release>ikmdev</core.artifact.release>
 
         <!-- transitive dependency versions -->
         <jackson.version>2.17.2</jackson.version>
