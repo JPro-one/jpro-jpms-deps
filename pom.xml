@@ -68,7 +68,16 @@
     <!-- Added modules section -->
     <modules>
         <module>cssfx</module>
+        <module>eclipse-collections</module>
+        <module>eclipse-collections-api</module>
+        <module>guava</module>
+        <module>jsr305</module>
+        <module>jwks-rsa</module>
+        <module>jwks-rsa-ikmdev</module>
         <module>openjfx-monocle-17</module>
+        <module>openjfx-monocle-21</module>
+        <module>testfx-core</module>
+        <module>testfx-junit5</module>
     </modules>
 
     <build>
@@ -117,7 +126,7 @@
     <profiles>
         <!-- Profile for Maven Central Deployment -->
         <profile>
-            <id>deployToSonatype</id>
+            <id>publishToSonatype</id>
             <build>
                 <plugins>
                     <plugin>
@@ -146,7 +155,7 @@
         </profile>
         <!-- Profile for JFrog Deployment -->
         <profile>
-            <id>deployToJFrog</id>
+            <id>publishToSandec</id>
             <distributionManagement>
                 <repository>
                     <id>jpro-sandec-repository</id>
