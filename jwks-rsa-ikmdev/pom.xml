@@ -4,38 +4,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>one.jpro.platform.jpms</groupId>
+    <parent>
+        <groupId>one.jpro.platform.jpms</groupId>
+        <artifactId>jpms-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
     <artifactId>${core.artifact.artifactId}</artifactId>
     <packaging>jar</packaging>
     <version>${core.artifact.version}-${core.artifact.release}</version>
 
     <name>JPro Platform JWKS RSA JPMS Module using IKM DEV Guava Library</name>
-    <description>A modularized version of JWKS RSA, repackaged for use with the JPro platform, providing support for JSON Web Key Set (JWKS) RSA keys.</description>
+    <description>A modularized version of JWKS RSA, repackaged for use with the JPro platform, providing support for
+        JSON Web Key Set (JWKS) RSA keys.</description>
 
     <properties>
-        <!-- change release here-->
+        <!-- Change release here-->
         <core.artifact.groupId>com.auth0</core.artifact.groupId>
         <core.artifact.artifactId>jwks-rsa</core.artifact.artifactId>
         <core.artifact.version>0.22.1</core.artifact.version>
         <core.artifact.release>ikmdev</core.artifact.release>
 
-        <!-- transitive dependency versions -->
+        <!-- Transitive dependency versions -->
         <jackson.version>2.17.2</jackson.version>
-        <jpro.guava.version>33.3.0-jre-r3</jpro.guava.version>
-
-        <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
-        <maven.moditect.plugin>1.2.2.Final</maven.moditect.plugin>
-        <maven.antrun.plugin>3.1.0</maven.antrun.plugin>
-        <maven.deploy.plugin>3.1.3</maven.deploy.plugin>
+        <dev-ikm-jpms-guava.version>33.3.0-jre-r3</dev-ikm-jpms-guava.version>
     </properties>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
 
     <!-- transitive dependencies of the repackaged artifact -->
     <dependencies>
@@ -44,32 +38,22 @@
             <artifactId>jackson-core</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
         <dependency>
             <groupId>dev.ikm.jpms</groupId>
             <artifactId>guava</artifactId>
-            <version>${jpro.guava.version}</version>
+            <version>${dev-ikm-jpms-guava.version}</version>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <id>jpro-sandec-repository</id>
-            <url>https://sandec.jfrog.io/artifactory/repo</url>
-        </repository>
-    </distributionManagement>
 
     <build>
         <resources>
@@ -80,20 +64,6 @@
                 </includes>
             </resource>
         </resources>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.moditect</groupId>
-                    <artifactId>moditect-maven-plugin</artifactId>
-                    <version>${maven.moditect.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${maven.antrun.plugin}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -124,7 +94,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -152,7 +121,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.moditect</groupId>
                 <artifactId>moditect-maven-plugin</artifactId>
@@ -188,7 +156,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -221,7 +188,6 @@
                             </target>
                         </configuration>
                     </execution>
-
                     <execution>
                         <phase>prepare-package</phase>
                         <configuration>
@@ -238,22 +204,6 @@
                         </configuration>
                         <goals>
                             <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Deploy to Artifactory -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven.deploy.plugin}</version>
-                <executions>
-                    <execution>
-                        <id>deploy-artifact</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
                         </goals>
                     </execution>
                 </executions>
